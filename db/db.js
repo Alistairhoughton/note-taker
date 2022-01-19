@@ -1,7 +1,7 @@
 const util = require('util');
 const fs = require('fs');
 const uuid = require('uuid');
-const { parse } = require('path/posix');
+const { parse } = require('path-posix');
 
 const readFileAsync = util.promisify(fs.readFile)
 const writeFileAsync = util.promisify(fs.writeFile)
