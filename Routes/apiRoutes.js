@@ -1,22 +1,36 @@
-const router = require('express').Router()
-const dbData = require('../db/db.js')
+const router = require("express").Router();
+const Notes = require("../db/db");
 
+// requesting the existing notes
 
-
-router.get('/notes', (req,res) =>{
-
-    dbData
-    .getNotes()
-    .then((note) =>{
-        return res.json(note)
-
+router.get("/notes", (req, res) => {
+  Notes.getNotes()
+    .then((notes) => {
+      res.json(notes);
     })
-    .catch((err) => res.status(500).json(err))
-
+    .catch((err) => {
+      res.status(503).json(err);
+    });
 });
 
-//post
+// posting note function route
 
-//delete
+router.post("/notes", (req, res) => {
+  Notes.addNote(req.body)
+    .then((note) => {
+      res.json(note);
+    })
+    .catch((err) => {
+      res.status(503).json(err);
+    });
+});
 
-module.exports = router
+// delete note function route
+
+router.delete("/notes/:id", (req, res) => {
+  Notes.deleteNote(req.params.id)
+    .then(() => res.json({ ok: true }))
+    .catch((err) => res.status(503).json(err));
+});
+
+module.exports = router;

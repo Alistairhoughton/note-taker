@@ -75,4 +75,13 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+  transition: ease-out 0.15s;
+}
+
+:hover.list-group-item {
+  background-color: rgb(238, 238, 238);
+}
+
+.navbar {
+  background-color: rgb(93, 128, 224);
 }
