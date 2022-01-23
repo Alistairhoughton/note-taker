@@ -28,6 +28,8 @@ application!
 
 Once you have installed the required packages. Simply open up the HTML file in your preffered browser and start taking notes! 
 
+The app is deployed here - https://express-note-taker-ah.herokuapp.com/
+
 ## Screenshot
 
 
